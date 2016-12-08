@@ -6,10 +6,15 @@ import java.util.Random;
 
 import org.junit.Test;
 
+import com.arentios.data.tools.Search;
+
 import static org.junit.Assert.*;
 
-import com.arentios.tools.Search;
-
+/**
+ * Unit tests for search packages
+ * @author Arentios
+ *
+ */
 public class SearchTest {
 
 	@Test
