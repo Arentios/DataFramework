@@ -9,7 +9,7 @@ import org.apache.commons.jcs.engine.control.CompositeCacheManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.arentios.data.datatypes.Searchable;
+import com.arentios.data.datatypes.Queryable;
 
 /**
  * Basic JCS cache manager system for data framework objects
@@ -21,7 +21,7 @@ public class DataCacheManager {
 	
 	private static final String DATA_CACHE = "dataCache";
 	
-	private static CacheAccess<Integer, Searchable> dataCache;
+	private static CacheAccess<Integer, Queryable> dataCache;
 	private static Logger LOGGER = LoggerFactory.getLogger(DataCacheManager.class);
 	private static DataCacheManager instance;
 	
@@ -37,7 +37,7 @@ public class DataCacheManager {
 		return instance;
 	}
 	
-	public boolean putPerson(Searchable data){
+	public boolean putPerson(Queryable data){
 		try{
 			//Clear out any old entry for this key
 			if(data != null){
@@ -51,9 +51,9 @@ public class DataCacheManager {
 		return true;
 	}
 	
-	public Searchable getData(Integer hashCode){
+	public Queryable getData(Integer hashCode){
 		try{
-			Searchable data = dataCache.get(hashCode);
+			Queryable data = dataCache.get(hashCode);
 			return data;
 		}catch(Exception e){
 			LOGGER.error(e.getMessage());

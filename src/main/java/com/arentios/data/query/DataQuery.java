@@ -3,7 +3,7 @@ package com.arentios.data.query;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.arentios.data.datatypes.Searchable;
+import com.arentios.data.datatypes.Queryable;
 
 public class DataQuery {
 
@@ -13,10 +13,10 @@ public class DataQuery {
 	 * @param queryKeys
 	 * @return
 	 */
-	public static <T extends Searchable> List<T> queryByAllKeys(List<T> list, List<String> queryKeys){
+	public static <T extends Queryable> List<T> queryByAllKeys(List<T> list, List<String> queryKeys){
 		List<T> results = new ArrayList<T>();
 		for(T data : list){
-			List<String> keys = data.getSearchKeys();
+			List<String> keys = data.getQueryKeys();
 			if(keys.containsAll(queryKeys)){
 				results.add(data);
 			}
@@ -30,10 +30,10 @@ public class DataQuery {
 	 * @param queryKeys
 	 * @return
 	 */
-	public static <T extends Searchable> List<T> queryByKeys(List<T> list, List<String> queryKeys){
+	public static <T extends Queryable> List<T> queryByKeys(List<T> list, List<String> queryKeys){
 		List<T> results = new ArrayList<T>();
 		for(T data : list){
-			List<String> keys = data.getSearchKeys();
+			List<String> keys = data.getQueryKeys();
 			for(String queryKey : keys){ //If one key matches add the object to the result set
 				if(keys.contains(queryKey)){
 					results.add(data);

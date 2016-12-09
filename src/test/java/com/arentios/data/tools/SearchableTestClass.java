@@ -2,20 +2,20 @@ package com.arentios.data.tools;
 
 import java.util.List;
 
-import com.arentios.data.datatypes.Searchable;
+import com.arentios.data.datatypes.Queryable;
 
-public class SearchableTestClass extends Searchable{
+public class SearchableTestClass extends Queryable{
 
 	private Integer primaryKey;
 	private Integer otherField;
 	
-	public int compareTo(Searchable o) {
+	public int compareTo(Queryable o) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public List<String> getSearchKeys() {
+	public List<String> getQueryKeys() {
 		// TODO Auto-generated method stub
 		return null;
 	}
